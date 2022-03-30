@@ -7,4 +7,9 @@ then
   notify-send -u critical "Low battery!" "battery level: ${battery_level}%   Please charge the computer";
 fi
 
+if [[ $battery_level -eq 100 ]]
+then
+  notify-send "Full battery! Disconnect the charger"
+fi
+
 echo $(acpi -b)
