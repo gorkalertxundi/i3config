@@ -38,9 +38,9 @@ exec --no-startup-id nm-applet
 
 # Screenshots
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym Print exec gnome-screenshot -a
+bindsym Print exec gnome-screenshot -acf /tmp/clipboardimg && cat /tmp/clipboardimg | xclip -i -selection clipboard -target image/png
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec gnome-screenshot -a -c
+bindsym Shift+Print exec gnome-screenshot -a
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
