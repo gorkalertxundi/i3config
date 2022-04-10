@@ -36,6 +36,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# ------ GAPS ------ #
+gaps inner 8
+gaps outer 8
+# Add this to get rid of titlebars because gaps doen't work with titlebars:
+for_window [class="^.*"] border pixel 2
+
 # Screenshots
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 bindsym Print exec gnome-screenshot -acf /tmp/clipboardimg && cat /tmp/clipboardimg | xclip -i -selection clipboard -target image/png
@@ -197,6 +203,7 @@ bindsym $mod+r mode "resize"
 bar {
 #        status_command i3status
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
   colors {
     separator #f4d6cc
     background #4b4e6d
