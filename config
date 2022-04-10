@@ -212,3 +212,7 @@ client.focused #6c71c4 #6c71c4 #fdf6e3 #6c71c4
 client.focused_inactive #292b4a #292b4a #93a1a1 #292b4a #6c71c4
 client.unfocused #292b4a #292b4a #93a1a1 #586e75
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
+
+# Execute on start
+## Restaurar el wallpaper
+exec nitrogen --restore
