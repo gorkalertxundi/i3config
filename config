@@ -22,8 +22,8 @@ font pango:monospace 8
 #font pango:DejaVu Sans Mono 8
 
 # Logout i3
-bindsym $mod+Escape exec i3lock
-# bindsym $mod+Escape exec i3lock -kB 8 --date-color=ffffff --time-color=ffffff
+bindsym $mod+Escape exec /home/gorka/.config/i3/lock.sh
+#bindsym $mod+Escape exec i3lock -kB 8 --date-color=ffffff --time-color=ffffff
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
