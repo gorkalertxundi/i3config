@@ -15,7 +15,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -38,7 +38,7 @@ exec --no-startup-id nm-applet
 
 # ------ GAPS ------ #
 gaps inner 8
-gaps outer 8
+gaps outer 4
 # Add this to get rid of titlebars because gaps doen't work with titlebars:
 for_window [class="^.*"] border pixel 2
 
@@ -80,7 +80,7 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -92,8 +92,8 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ñ move right
-bindsym $mod2+Shift+ñ move right
+bindsym $mod+Shift+semicolon move right
+#bindsym $mod2+Shift+ñ move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -185,7 +185,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -204,25 +204,28 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-#        status_command i3status
+        status_command i3status
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
   colors {
-    separator #f4d6cc
-    background #4b4e6d
+    separator #ffb52a
+    background #222222
     statusline #f4d6cc
-    focused_workspace #fdf6e3 #6c71c4 #fdf6e3
-    active_workspace #fdf6e3 #6c71c4 #fdf6e3
+    focused_workspace #ffb52a #ffb52a #ffffff
+    active_workspace #ffb52a #ffb52a #ffffff
     inactive_workspace #002b36 #586e75 #002b36
     urgent_workspace #d33682 #d33682 #fdf6e3
   }
 }
 
-client.focused #6c71c4 #6c71c4 #fdf6e3 #6c71c4
-client.focused_inactive #292b4a #292b4a #93a1a1 #292b4a #6c71c4
-client.unfocused #292b4a #292b4a #93a1a1 #586e75
+client.focused #ffb52a #ffb52a #ffb52a #ffb52a
+client.focused_inactive #222222 #222222 #222222 #222222 #222222
+client.unfocused #222222 #222222 #222222 #222222
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 # Execute on start
 ## Restaurar el wallpaper
 exec nitrogen --restore
+
+# Execute polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
